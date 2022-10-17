@@ -1,9 +1,10 @@
 #include "linked_list.h"
+#include <iostream>
 
 #pragma region Node
 
 template <typename T>
-node<T>::node(T data, const int data_count = 1) : m_next(nullptr) {
+node<T>::node(T data, const int data_count) : m_next(nullptr) {
     m_data_ = data;
     m_data_count_ = data_count;
 }
@@ -22,7 +23,7 @@ T node<T>::get_data() {
 }
 
 template <typename T>
-int node<T>::get_data_count() {
+int node<T>::get_data_count() const {
     return m_data_count_;
 }
 
@@ -125,7 +126,7 @@ T linked_list<T>::front() {
 }
 
 template <typename T> 
-T linked_list<T>::operator[] (int index) {
+T linked_list<T>::operator[] (const int index) {
     int current_index = 0;
     node<T>* itr = m_head_;
     while (itr != nullptr) {
@@ -135,6 +136,8 @@ T linked_list<T>::operator[] (int index) {
         current_index++;
         itr = itr->next;
     }
+
+    return NULL;
 }
 
 template <typename T> 
