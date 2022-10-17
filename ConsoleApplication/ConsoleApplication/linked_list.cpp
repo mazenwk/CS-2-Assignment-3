@@ -2,7 +2,34 @@
 
 #pragma region Node
 
+template <typename T>
+node<T>::node(T data, const int data_count = 1) : m_next(nullptr) {
+    m_data_ = data;
+    m_data_count_ = data_count;
+}
 
+template <typename T>
+node<T>::~node() {
+    if (m_next != nullptr) {
+        delete m_next;
+        m_next = nullptr;
+    }
+}
+
+template <typename T>
+T node<T>::get_data() {
+    return m_data_;
+}
+
+template <typename T>
+int node<T>::get_data_count() {
+    return m_data_count_;
+}
+
+template <typename T>
+void node<T>::increment_data_count() {
+    m_data_count_++;
+}
 
 #pragma endregion
 
