@@ -22,7 +22,7 @@ public:
 		return m_data_;
 	}
 
-	int get_data_count() {
+	int get_data_count() const {
 		return m_data_count_;
 	}
 
@@ -41,7 +41,7 @@ public:
 		
 	}
 
-	linked_list(std::vector<T>& vector) : m_head_(nullptr) {
+	explicit linked_list(std::vector<T>& vector) : m_head_(nullptr) {
 		for (std::size_t i = 0; i < vector.size(); ++i) {
 			node<T>* itr = m_head_;
 			node<T>* duplicate_element{};
@@ -110,7 +110,7 @@ public:
 			node<T>* itr = m_head_;
 			int index{};
 
-			while (itr->m_next != nullptr) {
+			while (itr != nullptr) {
 				std::cout << "Element number [" << index + 1 << "] is: " << itr->get_data() << " and was repeated " << itr->get_data_count() << " times" << '\n';
 				itr = itr->m_next;
 				index++;
@@ -118,6 +118,25 @@ public:
 
 			std::cout << std::endl;
 		}
+	}
+
+	T get_elements_sum() {
+		T sum{};
+
+		if (m_count_ > 0) {
+			node<T>* itr = m_head_;
+			int index{};
+
+			while (itr != nullptr) {
+				sum += itr->get_data() * itr->get_data_count();
+				itr = itr->m_next;
+				index++;
+			}
+
+			std::cout << std::endl;
+		}
+
+		return sum;
 	}
 
 	~linked_list() {
