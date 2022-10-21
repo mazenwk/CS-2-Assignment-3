@@ -1,6 +1,3 @@
-#define _CRTDBG_MAP_ALLOC
-#include <crtdbg.h>
-
 #include "linked_list.h"
 #include <iostream>
 #include <vector>
@@ -9,7 +6,7 @@
 void insert_after(std::vector<int>& vector, int first_element, int second_element);
 void print_vector(const std::vector<int>& vector);
 
-void t() {
+int main() {
     int input_count{};
     std::cout << "Input number of integers to input: "; std::cin >> input_count;
     std::vector<int> numbers_vector;
@@ -31,13 +28,7 @@ void t() {
     linked_list<int> numbers_list(numbers_vector);
     numbers_list.print_elements();
     std::cout << "The sum of the list is: " << numbers_list.get_elements_sum() << '\n';
-}
 
-int main()
-{
-
-    t();
-    _CrtDumpMemoryLeaks();
     return 0;
 }
 
@@ -57,4 +48,3 @@ void print_vector(const std::vector<int>& vector) {
         std::cout << "Element number [" << i + 1 << "] is: " << vector[i] << '\n';
 	}
 }
-
