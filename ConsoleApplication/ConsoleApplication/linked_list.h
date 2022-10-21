@@ -79,6 +79,7 @@ public:
 		}
 	}
 
+	// Pushes to the end
 	void push(T data) {
 		if (m_head_ == nullptr) {
 			m_head_ = new node<T>(data);
@@ -95,6 +96,7 @@ public:
 		m_count_++;
 	}
 
+	// Pops the last element
 	void pop() {
 		if (m_head_->m_next == nullptr) {
 			delete m_head_;

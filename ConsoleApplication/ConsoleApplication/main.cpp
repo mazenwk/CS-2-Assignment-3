@@ -27,6 +27,7 @@ int main() {
 
     linked_list<int> numbers_list(numbers_vector);
     numbers_list.print_elements();
+
     std::cout << "The sum of the list is: " << numbers_list.get_elements_sum() << '\n';
 
     return 0;
